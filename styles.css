@@ -2,7 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #fdc2cb; /* Cute pink background */
     margin: 0;
     overflow-x: hidden; /* Prevent scrollbars from moving button */
