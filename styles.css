@@ -73,7 +73,7 @@ body {
     /* Start in flow for perfect alignment */
     /* Checks script for becoming absolute */
     margin-left: 20px;
-    transition: 0.3s; /* Smooth movement if desired, or instant */
+    transition: left 0.5s ease, top 0.5s ease; /* Smooth movement */
 }
 
 /* Specific styling for when we are mobile to ensure buttons are stacked or decent */
