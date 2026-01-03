@@ -5,7 +5,7 @@ body {
     height: 100vh;
     background-color: #fdc2cb; /* Cute pink background */
     margin: 0;
-    overflow: hidden; /* Prevent scrollbars from moving button */
+    overflow-x: hidden; /* Prevent scrollbars from moving button */
     user-select: none;
 }
 
