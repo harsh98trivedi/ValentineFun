@@ -10,6 +10,7 @@ This project is a fun, mobile-friendly website designed to ask that special some
 
 ## Credits
 
+-   **Original Code**: Inspired by [Samarth Mishra's](https://github.com/iamsamarthmishra/valentinecode_JFF) project.
 -   **GIFs**: Cute animated illustrations provided by [Moobub](https://giphy.com/moobub).
 
 ## Features
