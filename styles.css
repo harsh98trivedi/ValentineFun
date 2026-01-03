@@ -1,0 +1,114 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fdc2cb; /* Cute pink background */
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars from moving button */
+    user-select: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.header_text {
+    font-family: 'Satisfy', cursive;
+    font-size: 50px;
+    font-weight: bold;
+    color: #ff4d6d; /* Darker pink for text */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    min-height: 100px;
+    position: relative;
+    width: 100%;
+}
+
+.btn {
+    background-color: #ffffff;
+    color: #ff4d6d;
+    padding: 20px 40px; /* Larger padding */
+    text-align: center;
+    display: inline-block;
+    font-size: 20px; /* Larger font */
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    outline: none; /* Remove outline selection */
+    border-radius: 50px; /* Rounder, cuter buttons */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.3s;
+    z-index: 10;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #fdc2cb;
+}
+
+#yesButton {
+    /* Static position naturally flows in flex */
+    margin-right: 20px;
+}
+
+#noButton {
+    /* Start in flow for perfect alignment */
+    /* Checks script for becoming absolute */
+    margin-left: 20px;
+    transition: 0.3s; /* Smooth movement if desired, or instant */
+}
+
+/* Specific styling for when we are mobile to ensure buttons are stacked or decent */
+.gif_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gif_container img {
+    max-width: 90%; /* Responsive image */
+    max-height: 50vh; /* Don't take up too much height */
+    height: auto;
+    border-radius: 20px; /* Soft edges */
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+    .header_text {
+        font-size: 32px;
+        margin-top: 10px;
+    }
+    
+    .btn {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+
+    .buttons {
+        flex-direction: column; /* Stack buttons on mobile? Maybe keep row if they fit */
+        gap: 20px;
+    }
+    
+    #yesButton {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    #noButton {
+        margin-left: 0;
+    }
+}

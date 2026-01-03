@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Be My Valentine?</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    </head> 
+    <body>
+        <div class="container">
+            <div>
+                <h1 class="header_text">Will you be my Valentine?</h1>
+            </div>
+            <div class="gif_container">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+            </div>
+            <div class="buttons">
+                <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+            </div>
+        </div>
+
+        <script>
+            var interactionCount = 0;
+
+            function nextPage() {
+                window.location.href = "yes.html";
+            }
+            
+            function moveButton() {
+                interactionCount++;
+                if (interactionCount >= 25) {
+                    window.location.href = "no.html";
+                    return;
+                }
+
+                var noBtn = document.getElementById('noButton');
+                
+                // Switch to fixed positioning to move freely around the viewport
+                noBtn.style.position = 'fixed';
+                
+                // Calculate max available space with a small safety margin
+                var maxWidth = window.innerWidth - noBtn.offsetWidth - 20;
+                var maxHeight = window.innerHeight - noBtn.offsetHeight - 20;
+
+                // Ensure non-negative bounds
+                if (maxWidth < 0) maxWidth = 0;
+                if (maxHeight < 0) maxHeight = 0;
+
+                // Generate random position within safe bounds (adding 10px buffer)
+                var x = Math.random() * maxWidth + 10;
+                var y = Math.random() * maxHeight + 10;
+                
+                noBtn.style.left = `${x}px`;
+                noBtn.style.top = `${y}px`;
+            }
+        </script> 
+    </body> 
+</html>
