@@ -2,15 +2,15 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Be you be my Valentine?</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Will you be my Valentine?</title>
         <link rel="stylesheet" href="./styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     </head> 
     <body>
         <div class="container">
             <div>
-                <h1 class="header_text">Be you be my Valentine?</h1>
+                <h1 class="header_text">Will you be my Valentine?</h1>
             </div>
             <div class="gif_container">
                 <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
@@ -23,6 +23,7 @@
 
         <script>
             var interactionCount = 0;
+            var yesScale = 1;
 
             function nextPage() {
                 window.location.href = "yes.html";
@@ -30,6 +31,42 @@
             
             function moveButton() {
                 interactionCount++;
+                yesScale += 0.08; // Increase size by roughly 8% per click
+
+                if (interactionCount === 10) {
+                    var yesBtn = document.getElementById('yesButton');
+                    var noBtn = document.getElementById('noButton');
+
+                    // Reset scale on the outgoing Yes button (now becoming No)
+                    yesBtn.style.removeProperty('--btn-scale');
+
+                    // Swap texts
+                    yesBtn.innerText = "No";
+                    noBtn.innerText = "Yes";
+
+                    // Swap IDs
+                    yesBtn.id = "noButton";
+                    noBtn.id = "yesButton";
+
+                    // Apply scale to the new Yes button
+                    noBtn.style.setProperty('--btn-scale', yesScale);
+
+                    // Update event listeners
+                    yesBtn.setAttribute('onmouseover', 'moveButton()');
+                    yesBtn.setAttribute('onclick', 'moveButton()');
+
+                    noBtn.removeAttribute('onmouseover');
+                    noBtn.setAttribute('onclick', 'nextPage()');
+
+                    return;
+                }
+                
+                // standard scale update
+                var currentYes = document.getElementById('yesButton');
+                if (currentYes) {
+                    currentYes.style.setProperty('--btn-scale', yesScale);
+                }
+
                 if (interactionCount >= 25) {
                     window.location.href = "no.html";
                     return;

@@ -49,15 +49,19 @@ body {
     outline: none; /* Remove outline selection */
     border-radius: 50px; /* Rounder, cuter buttons */
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.2s, background-color 0.3s;
+    transition: transform 0.2s, background-color 0.3s, color 0.3s;
     z-index: 10;
     text-decoration: none;
     font-family: 'Nunito', sans-serif;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+    touch-action: manipulation; /* Improve touch response */
+    transform: scale(var(--btn-scale, 1));
 }
 
 .btn:hover {
-    transform: scale(1.05);
-    background-color: #fdc2cb;
+    transform: scale(calc(var(--btn-scale, 1) * 1.05));
+    background-color: #ff4d6d;
+    color: #ffffff;
 }
 
 #yesButton {
