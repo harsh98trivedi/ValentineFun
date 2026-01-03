@@ -45,7 +45,7 @@
                 interactionCount++;
                 yesScale += 0.08; // Increase size by roughly 8% per click
 
-                if (interactionCount === 10) {
+                if (interactionCount % 10 === 0) {
                     var yesBtn = document.getElementById('yesButton');
                     var noBtn = document.getElementById('noButton');
 
